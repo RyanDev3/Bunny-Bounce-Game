@@ -8,10 +8,12 @@ public class CharacterController : MonoBehaviour
     public float jumpForce = 10f;
     private bool isGrounded;
     private Rigidbody2D rb;
+    private BoxCollider2D box2d;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        box2d = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -25,15 +27,24 @@ public class CharacterController : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
         }
+
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        // Check if the player is on the ground
-        if (collision.gameObject.CompareTag("Ground"))
+        foreach (ContactPoint2D cp in collision.contacts)
         {
-            isGrounded = true;
+            if(cp.normal == new Vector2(0,1))
+            {
+                isGrounded = true;
+            }
         }
+
+        // Check if the player is on the ground
+        //if (collision.gameObject.CompareTag("Ground"))
+        //{
+            
+        //}
     }
 
     void OnCollisionExit2D(Collision2D collision)
