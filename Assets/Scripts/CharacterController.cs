@@ -9,9 +9,15 @@ public class CharacterController : MonoBehaviour
     private bool isGrounded;
     private Rigidbody2D rb;
     private BoxCollider2D box2d;
+    private float jumpMult = 1f;
+    private float jumpMultMax = 3f;
+    private bool isPreppingJump;
+
 
     void Start()
     {
+        Application.targetFrameRate = 60;
+
         rb = GetComponent<Rigidbody2D>();
         box2d = GetComponent<BoxCollider2D>();
     }
@@ -25,7 +31,30 @@ public class CharacterController : MonoBehaviour
         // Handle jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            
+        }
+        if (Input.GetButton("Jump"))
+        {
+            isPreppingJump = true;
+
+            if(jumpMult < jumpMultMax)
+            {
+                jumpMult += 4 * Time.deltaTime;
+            }
+        }
+        else
+        {           
+
+            if (isGrounded && isPreppingJump)
+            {
+                isPreppingJump = false;
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpMult);
+            }
+
+            if (jumpMult > 0)
+            {
+                jumpMult -= 8 * Time.deltaTime;
+            }
         }
 
     }
