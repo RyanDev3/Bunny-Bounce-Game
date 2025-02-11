@@ -10,7 +10,5 @@ public class CharacterController : MonoBehaviour
 	void Update()
 	{
 
-		Print("Omg")
-
 	}
 }
