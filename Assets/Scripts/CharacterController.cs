@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    [SerializeField]
+    [Range(1, 5000)] float jump = 1;
+
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     private bool isGrounded;
@@ -12,7 +15,7 @@ public class CharacterController : MonoBehaviour
     private float jumpMult = 1f;
     private float jumpMultMax = 3f;
     private bool isPreppingJump;
-
+    private Vector2 mouseDirection;
 
     void Start()
     {
@@ -24,9 +27,13 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
+        GetMousePositionWorldSpace();
+
         // Handle horizontal movement
         float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        
+        if(moveInput != 0)
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
         // Handle jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -44,19 +51,28 @@ public class CharacterController : MonoBehaviour
         }
         else
         {           
-
             if (isGrounded && isPreppingJump)
             {
+                
                 isPreppingJump = false;
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpMult);
+                AddForceJump(jumpMult);
+                //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpMult);
             }
 
-            if (jumpMult > 0)
+            if (jumpMult > 1)
             {
                 jumpMult -= 8 * Time.deltaTime;
             }
         }
 
+        Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
+    }
+
+    void AddForceJump(float multiplier)
+    {
+        print("Force: " + jump *  multiplier);
+
+        rb.AddForce(mouseDirection.normalized * jump * multiplier);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -83,5 +99,15 @@ public class CharacterController : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    void GetMousePositionWorldSpace()
+    {
+        mouseDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+    }
+
+    private void OnDrawGizmos()
+    {
+        
     }
 }
