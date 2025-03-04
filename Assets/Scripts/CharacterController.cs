@@ -8,7 +8,7 @@ public class CharacterController : MonoBehaviour
     [Range(1, 5000)] float jump = 1;
 
     public float moveSpeed = 5f;
-    public float jumpForce = 10f;
+    public float jumpForce = 4f;
     private bool isGrounded;
     private Rigidbody2D rb;
     private BoxCollider2D box2d;
@@ -19,7 +19,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 120;
 
         rb = GetComponent<Rigidbody2D>();
         box2d = GetComponent<BoxCollider2D>();
