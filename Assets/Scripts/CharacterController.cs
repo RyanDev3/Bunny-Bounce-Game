@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CharacterController : MonoBehaviour
 {
     [SerializeField]
@@ -17,6 +18,8 @@ public class CharacterController : MonoBehaviour
     private bool isPreppingJump;
     private Vector2 mouseDirection;
 
+    private Vector2 jumpDirection;
+
     void Start()
     {
         Application.targetFrameRate = 120;
@@ -31,9 +34,18 @@ public class CharacterController : MonoBehaviour
 
         // Handle horizontal movement
         float moveInput = Input.GetAxis("Horizontal");
-        
-        if(moveInput != 0)
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        if (moveInput < 0)
+        {
+            jumpDirection = new Vector2(-0.5f, 0.5f);
+        }
+        else if(moveInput > 0)
+        {
+            jumpDirection = new Vector2(0.5f, 0.5f);
+        }
+
+        //if (moveInput != 0)
+        //    rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
         // Handle jumping
         if (Input.GetButtonDown("Jump") && isGrounded)
@@ -55,7 +67,8 @@ public class CharacterController : MonoBehaviour
             {
                 
                 isPreppingJump = false;
-                AddForceJump(jumpMult);
+                //AddForceJump(jumpMult);
+                NewJump(jumpMult);
                 //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpMult);
             }
 
@@ -63,6 +76,11 @@ public class CharacterController : MonoBehaviour
             {
                 jumpMult -= 8 * Time.deltaTime;
             }
+        }
+        
+        if(!isGrounded)
+        {
+            print(rb.linearVelocity.normalized);
         }
 
         Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
@@ -106,8 +124,8 @@ public class CharacterController : MonoBehaviour
         mouseDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
     }
 
-    private void OnDrawGizmos()
+    void NewJump(float multiplier)
     {
-        
+        rb.AddForce(jumpDirection.normalized * jump * multiplier);
     }
 }
