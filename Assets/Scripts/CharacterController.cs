@@ -33,14 +33,13 @@ public class CharacterController : MonoBehaviour
         if (!isGrounded)
             return;
 
-        if (isGrounded)
-            return;
+
 
         if (isPreppingJump)
             return;
 
-        float moveInput = Input.GetAxis("Horizontal");
 
+        float moveInput = Input.GetAxis("Horizontal");
         if (moveInput < 0)
         {
             jumpDirection = new Vector2(-0.25f, 1f).normalized;
@@ -108,7 +107,20 @@ public class CharacterController : MonoBehaviour
                 Debug.Log("Grounded");
                 break;
             }
+
+            if (collision.gameObject.CompareTag("Wall"))
+            {
+                Debug.Log("Wall Hit");
+                Rigidbody rb = GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.linearVelocity = new Vector3(-rb.linearVelocity.x, rb.linearVelocity.y, -rb.linearVelocity.z);
+                }
+            }
+
         }
+
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -120,3 +132,4 @@ public class CharacterController : MonoBehaviour
         }
     }
 }
+
