@@ -28,10 +28,7 @@ public class FollowCamera : MonoBehaviour
         Vector3 bottomLeft = cam.ViewportToScreenPoint(new Vector3(horizontalMargin, verticalMargin, 0));
         Vector3 topRight = cam.ViewportToScreenPoint(new Vector3(1 - horizontalMargin, 1 - verticalMargin, 0));
 
-        if (screenPos.x < bottomLeft.x || screenPos.x > topRight.x)
-        {
-            target.x += movementDelta.x;
-        }
+      
 
         if (screenPos.y < bottomLeft.y || screenPos.y > topRight.y)
         {

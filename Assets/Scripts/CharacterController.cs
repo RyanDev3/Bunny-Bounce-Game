@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 10f; 
+    [SerializeField] private float jumpForce = 8f; 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float maxJumpMultiplier = 3f;
     [SerializeField] private float jumpChargeSpeed = 5f;
@@ -30,15 +30,24 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
+        if (!isGrounded)
+            return;
+
+        if (isGrounded)
+            return;
+
+        if (isPreppingJump)
+            return;
+
         float moveInput = Input.GetAxis("Horizontal");
 
         if (moveInput < 0)
         {
-            jumpDirection = new Vector2(-0.25f, 1f).normalized; 
+            jumpDirection = new Vector2(-0.25f, 1f).normalized;
         }
         else if (moveInput > 0)
         {
-            jumpDirection = new Vector2(0.25f, 1f).normalized; 
+            jumpDirection = new Vector2(0.25f, 1f).normalized;
         }
 
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
