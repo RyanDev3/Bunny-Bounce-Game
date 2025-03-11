@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] private float jumpForce = 10f; // Increased jump force
+    [SerializeField] private float jumpForce = 10f; 
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float maxJumpMultiplier = 3f;
     [SerializeField] private float jumpChargeSpeed = 5f;
@@ -12,13 +12,13 @@ public class CharacterController : MonoBehaviour
 
     private bool isGrounded;
     private Rigidbody2D rb;
-    private float jumpMult = 1f;
+    private float jumpMult = 2f;
     private bool isPreppingJump;
-    private Vector2 jumpDirection = Vector2.up; // Default jump direction is upwards
+    private Vector2 jumpDirection = Vector2.up; 
 
     void Start()
     {
-        Application.targetFrameRate = 120;
+        Application.targetFrameRate = 160;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -33,14 +33,13 @@ public class CharacterController : MonoBehaviour
     {
         float moveInput = Input.GetAxis("Horizontal");
 
-        // Update jump direction based on movement input
         if (moveInput < 0)
         {
-            jumpDirection = new Vector2(-0.25f, 1f).normalized; // More vertical jump when moving left
+            jumpDirection = new Vector2(-0.25f, 1f).normalized; 
         }
         else if (moveInput > 0)
         {
-            jumpDirection = new Vector2(0.25f, 1f).normalized; // More vertical jump when moving right
+            jumpDirection = new Vector2(0.25f, 1f).normalized; 
         }
 
         rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
@@ -95,7 +94,7 @@ public class CharacterController : MonoBehaviour
     {
         foreach (ContactPoint2D cp in collision.contacts)
         {
-            if (cp.normal.y > 0.9f) // Check if the collision is from below (ground)
+            if (cp.normal.y > 0.9f) 
             {
                 isGrounded = true;
                 Debug.Log("Grounded");
