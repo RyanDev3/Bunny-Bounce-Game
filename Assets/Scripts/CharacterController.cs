@@ -2,130 +2,114 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField]
-    [Range(1, 5000)] float jump = 1;
+    [SerializeField] private float jumpForce = 10f; // Increased jump force
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float maxJumpMultiplier = 3f;
+    [SerializeField] private float jumpChargeSpeed = 5f;
+    [SerializeField] private float jumpDecaySpeed = 8f;
 
-    public float moveSpeed = 5f;
-    public float jumpForce = 4f;
     private bool isGrounded;
     private Rigidbody2D rb;
-    private BoxCollider2D box2d;
     private float jumpMult = 1f;
-    private float jumpMultMax = 3f;
     private bool isPreppingJump;
-    private Vector2 mouseDirection;
-
-    private Vector2 jumpDirection;
+    private Vector2 jumpDirection = Vector2.up; // Default jump direction is upwards
 
     void Start()
     {
         Application.targetFrameRate = 120;
-
         rb = GetComponent<Rigidbody2D>();
-        box2d = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
-        GetMousePositionWorldSpace();
-
-        // Handle horizontal movement
-        float moveInput = Input.GetAxis("Horizontal");
-
-        if (moveInput < 0)
-        {
-            jumpDirection = new Vector2(-0.5f, 0.5f);
-        }
-        else if(moveInput > 0)
-        {
-            jumpDirection = new Vector2(0.5f, 0.5f);
-        }
-
-        //if (moveInput != 0)
-        //    rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-
-        // Handle jumping
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            
-        }
-        if (Input.GetButton("Jump"))
-        {
-            isPreppingJump = true;
-
-            if(jumpMult < jumpMultMax)
-            {
-                jumpMult += 4 * Time.deltaTime;
-            }
-        }
-        else
-        {           
-            if (isGrounded && isPreppingJump)
-            {
-                
-                isPreppingJump = false;
-                //AddForceJump(jumpMult);
-                NewJump(jumpMult);
-                //rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce * jumpMult);
-            }
-
-            if (jumpMult > 1)
-            {
-                jumpMult -= 8 * Time.deltaTime;
-            }
-        }
-        
-        if(!isGrounded)
-        {
-            print(rb.linearVelocity.normalized);
-        }
-
+        HandleMovement();
+        HandleJump();
         Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
     }
 
-    void AddForceJump(float multiplier)
+    private void HandleMovement()
     {
-        print("Force: " + jump *  multiplier);
+        float moveInput = Input.GetAxis("Horizontal");
 
-        rb.AddForce(mouseDirection.normalized * jump * multiplier);
+        // Update jump direction based on movement input
+        if (moveInput < 0)
+        {
+            jumpDirection = new Vector2(-0.25f, 1f).normalized; // More vertical jump when moving left
+        }
+        else if (moveInput > 0)
+        {
+            jumpDirection = new Vector2(0.25f, 1f).normalized; // More vertical jump when moving right
+        }
+
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void HandleJump()
+    {
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            isPreppingJump = true;
+        }
+
+        if (Input.GetButton("Jump") && isPreppingJump)
+        {
+            ChargeJump();
+        }
+        else if (isPreppingJump)
+        {
+            ExecuteJump();
+        }
+
+        DecayJumpMultiplier();
+    }
+
+    private void ChargeJump()
+    {
+        if (jumpMult < maxJumpMultiplier)
+        {
+            jumpMult += jumpChargeSpeed * Time.deltaTime;
+        }
+    }
+
+    private void ExecuteJump()
+    {
+        if (isGrounded)
+        {
+            rb.AddForce(jumpDirection * jumpForce * jumpMult, ForceMode2D.Impulse);
+            isPreppingJump = false;
+            Debug.Log("Jump executed with force: " + (jumpDirection * jumpForce * jumpMult));
+        }
+    }
+
+    private void DecayJumpMultiplier()
+    {
+        if (!isPreppingJump && jumpMult > 1f)
+        {
+            jumpMult -= jumpDecaySpeed * Time.deltaTime;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         foreach (ContactPoint2D cp in collision.contacts)
         {
-            if(cp.normal == new Vector2(0,1))
+            if (cp.normal.y > 0.9f) // Check if the collision is from below (ground)
             {
                 isGrounded = true;
+                Debug.Log("Grounded");
+                break;
             }
         }
-
-        // Check if the player is on the ground
-        //if (collision.gameObject.CompareTag("Ground"))
-        //{
-            
-        //}
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        // Check if the player is no longer on the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            Debug.Log("Not Grounded");
         }
-    }
-
-    void GetMousePositionWorldSpace()
-    {
-        mouseDirection = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
-    }
-
-    void NewJump(float multiplier)
-    {
-        rb.AddForce(jumpDirection.normalized * jump * multiplier);
     }
 }
