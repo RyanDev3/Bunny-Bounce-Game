@@ -26,7 +26,6 @@ public class CharacterController : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
-        Debug.DrawLine(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), Color.red);
     }
 
     private void HandleMovement()
