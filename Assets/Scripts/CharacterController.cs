@@ -144,7 +144,7 @@ public class CharacterController : MonoBehaviour
         {
             Physics2D.gravity = new Vector2(0, -5f);
         }
-        else if (Input.GetKeyDown(KeyCode.E)) // Press E To Rever To Base Gravity
+        else if (Input.GetKeyDown(KeyCode.E)) // Press E To Revert To Base Gravity
         {
             Physics2D.gravity = new Vector2(0, -9.8f);
         }
