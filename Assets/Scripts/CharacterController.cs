@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+
     // Serialized fields for adjustable parameters in the Unity Inspector
     [SerializeField] private float jumpForce = 8f; // Base force applied when jumping
     [SerializeField] private float moveSpeed = 5f; // Speed at which the character moves horizontally
@@ -27,6 +28,7 @@ public class CharacterController : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
+        GravityAbility();
     }
 
     private void HandleMovement()
@@ -132,5 +134,24 @@ public class CharacterController : MonoBehaviour
             isGrounded = false;
             Debug.Log("Not Grounded");
         }
+    }
+
+    // Abilities
+
+    private void GravityAbility()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Physics2D.gravity = new Vector2(0, -5f);
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            Physics2D.gravity = new Vector2(0, -9.8f);
+        }
+    }
+
+   private void HorAbility()
+    {
+
     }
 }
