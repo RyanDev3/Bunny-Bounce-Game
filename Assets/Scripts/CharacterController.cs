@@ -140,11 +140,11 @@ public class CharacterController : MonoBehaviour
 
     private void GravityAbility()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Q)) // Press Q To Enable Gravity Ability
         {
             Physics2D.gravity = new Vector2(0, -5f);
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E)) // Press E To Rever To Base Gravity
         {
             Physics2D.gravity = new Vector2(0, -9.8f);
         }
