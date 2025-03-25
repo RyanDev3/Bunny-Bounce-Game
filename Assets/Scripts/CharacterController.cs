@@ -16,7 +16,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float maxJumpMultiplier = 3f; // Maximum multiplier for jump force
     [SerializeField] private float jumpChargeSpeed = 5f; // Speed at which the jump charge increases
     [SerializeField] private float jumpDecaySpeed = 8f; // Speed at which the jump multiplier decays after release
-    [SerializeField] private float jumpReductionFactor = -5f; // Jump Decay For The Horizontal Ability
+    [SerializeField] private float jumpReductionFactor = 5f; // Jump Decay For The Horizontal Ability
 
     [Header("State Settings")]
     private bool isGrounded; // Whether the character is on the ground
