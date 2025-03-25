@@ -5,6 +5,10 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
+    private enum AbilityState { Normal, LowGravity, HorizontalAirControl }
+    private AbilityState currentAbility = AbilityState.Normal;
+
+
     [Header("HorAbility Settings")]
     [SerializeField] private float shortHopForce = 6f; // Fixed low jump force
     [SerializeField] private float airMoveSpeed = 8f; // Faster horizontal control in air      //JACK DONT TOUCH THESE THEY ARE SO USELESS
@@ -35,8 +39,8 @@ public class CharacterController : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
-        GravityAbility();
-        HorAbility();
+        HandleAbilities();
+        ApplyCurrentAbility();
     }
 
 
@@ -162,30 +166,41 @@ public class CharacterController : MonoBehaviour
     }
 
     // Abilities
-
-    private void GravityAbility()
+    private void HandleAbilities()
     {
-        if(Input.GetKeyDown(KeyCode.Q)) // Press Q To Enable Gravity Ability
+        if (Input.GetKeyDown(KeyCode.Q)) // Cycle forward through abilities
         {
-            Physics2D.gravity = new Vector2(0, -5f);
+            currentAbility = (AbilityState)(((int)currentAbility + 1) % 3);
+            ApplyCurrentAbility();
         }
-        else if (Input.GetKeyDown(KeyCode.E)) // Press E To Revert To Base Gravity
+        else if (Input.GetKeyDown(KeyCode.E)) // Reset to normal
         {
-            Physics2D.gravity = new Vector2(0, -9.8f);
+            currentAbility = AbilityState.Normal;
+            ApplyCurrentAbility();
         }
     }
 
-    private void HorAbility()
+    private void ApplyCurrentAbility()
     {
-        if (Input.GetKeyDown(KeyCode.H)) 
+        switch (currentAbility)
         {
-            isHorAbilityActive = true;
-            Debug.Log("Horizontal Ability Activated");
+            case AbilityState.Normal:
+                Physics2D.gravity = new Vector2(0, -9.8f);
+                isHorAbilityActive = false;
+                Debug.Log("Normal");
+                break;
+
+            case AbilityState.LowGravity:
+                Physics2D.gravity = new Vector2(0, -5f);
+                isHorAbilityActive = false;
+                Debug.Log("Low Gravity");
+                break;
+
+            case AbilityState.HorizontalAirControl:
+                Physics2D.gravity = new Vector2(0, -9.8f);
+                isHorAbilityActive = true;
+                Debug.Log("Horizontal Air Control");
+                break;
         }
-        else if (Input.GetKeyDown(KeyCode.J))   //PURELY KEYBINDS AND DEBUG DONT CHANGE
-        {
-            isHorAbilityActive = false;
-            Debug.Log("Horizontal Ability Deactivated");
-        } 
     }
 }
