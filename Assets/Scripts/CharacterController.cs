@@ -46,8 +46,8 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Only allow movement when grounded (completely disable all air movement)
-        if (!isGrounded) return;
+        // Don't allow any movement while in air (unless ability is active)
+        if (!isGrounded && !isHorAbilityActive) return;
 
         float moveInput = Input.GetAxis("Horizontal");
 
@@ -62,7 +62,7 @@ public class CharacterController : MonoBehaviour
         }
         else if (isHorAbilityActive)
         {
-           rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
         }
     }
 
@@ -72,7 +72,7 @@ public class CharacterController : MonoBehaviour
         {
             if (isHorAbilityActive)
             {
-
+                // Fixed-height jump with horizontal influence
                 rb.linearVelocity = new Vector2(
                     Input.GetAxis("Horizontal") * airMoveSpeed * 0.5f,
                     shortHopForce
@@ -82,7 +82,7 @@ public class CharacterController : MonoBehaviour
             {
                 // Normal charged jump
                 isPreppingJump = true;
-                rb.linearVelocity = Vector2.zero; 
+                rb.linearVelocity = Vector2.zero;
             }
         }
 
@@ -91,7 +91,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetButton("Jump") && isPreppingJump)
             {
                 ChargeJump();
-                rb.linearVelocity = Vector2.zero; 
+                rb.linearVelocity = Vector2.zero; // Freeze during charge
             }
             else if (isPreppingJump)
             {
