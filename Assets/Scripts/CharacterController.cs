@@ -5,19 +5,26 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    // Serialized fields for adjustable parameters in the Unity Inspector
+    [Header("HorAbility Settings")]
+    [SerializeField] private float shortHopForce = 6f; // Fixed low jump force
+    [SerializeField] private float airMoveSpeed = 8f; // Faster horizontal control in air
+
+
+    [Header("Movement")]
     [SerializeField] private float jumpForce = 8f; // Base force applied when jumping
     [SerializeField] private float moveSpeed = 5f; // Speed at which the character moves horizontally
     [SerializeField] private float maxJumpMultiplier = 3f; // Maximum multiplier for jump force
     [SerializeField] private float jumpChargeSpeed = 5f; // Speed at which the jump charge increases
     [SerializeField] private float jumpDecaySpeed = 8f; // Speed at which the jump multiplier decays after release
+    [SerializeField] private float jumpReductionFactor = -5f; // Jump Decay For The Horizontal Ability
 
-    // Private variables for internal state management
+    [Header("State Settings")]
     private bool isGrounded; // Whether the character is on the ground
     private Rigidbody2D rb; // Reference to the Rigidbody2D component
     private float jumpMult = 2f; // Current jump multiplier
     private bool isPreppingJump; // Whether the character is charging a jump
     private Vector2 jumpDirection = Vector2.up; // Direction of the jump, default is upwards
+    private bool isHorAbilityActive = false; // Whether the horizontal ability is active
 
     void Start()
     {
@@ -29,48 +36,57 @@ public class CharacterController : MonoBehaviour
         HandleMovement();
         HandleJump();
         GravityAbility();
+        HorAbility();
     }
+
 
     private void HandleMovement()
     {
-        if (!isGrounded || isPreppingJump)
-            return;
-
-        // Get horizontal input
         float moveInput = Input.GetAxis("Horizontal");
 
-        // Adjust jump direction based on movement input
-        if (moveInput < 0)
+        // Adjustable jump direction (unchanged)
+        if (moveInput < 0) jumpDirection = new Vector2(-0.25f, 1f).normalized;
+        else if (moveInput > 0) jumpDirection = new Vector2(0.25f, 1f).normalized;
+
+        // Movement logic
+        if (isGrounded)
         {
-            jumpDirection = new Vector2(-0.25f, 1f).normalized; // Jump slightly to the left
+            // Normal ground movement
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
-        else if (moveInput > 0)
+        else if (isHorAbilityActive)
         {
-            jumpDirection = new Vector2(0.25f, 1f).normalized; // Jump slightly to the right
+            // Precise air control when ability is active
+            rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
         }
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
     }
 
     private void HandleJump()
     {
-        // Start charging the jump when the jump button is pressed and the character is grounded
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            isPreppingJump = true;
+            if (isHorAbilityActive)
+            {
+                // Short hop with minimal vertical force
+                rb.AddForce(Vector2.up * shortHopForce, ForceMode2D.Impulse);
+                // Give immediate horizontal control
+                float moveInput = Input.GetAxis("Horizontal");
+                rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
+            }
+            else
+            {
+                // Normal charged jump
+                isPreppingJump = true;
+            }
         }
 
-        // Charge the jump while the jump button is held down
-        if (Input.GetButton("Jump") && isPreppingJump)
+        // Normal charge (only when ability is OFF)
+        if (!isHorAbilityActive)
         {
-            ChargeJump();
+            if (Input.GetButton("Jump") && isPreppingJump) ChargeJump();
+            else if (isPreppingJump) ExecuteJump();
+            DecayJumpMultiplier();
         }
-        // Execute the jump when the jump button is released
-        else if (isPreppingJump)
-        {
-            ExecuteJump();
-        }
-
-        DecayJumpMultiplier();
     }
 
     private void ChargeJump()
@@ -86,9 +102,18 @@ public class CharacterController : MonoBehaviour
     {
         if (isGrounded)
         {
-            rb.AddForce(jumpDirection * jumpForce * jumpMult, ForceMode2D.Impulse);
+            float finalJumpForce = jumpForce;
+
+            if (isHorAbilityActive)
+            {
+                finalJumpForce *= jumpReductionFactor;
+            }
+
+            finalJumpForce *= jumpMult;
+
+            rb.AddForce(jumpDirection * finalJumpForce, ForceMode2D.Impulse);
             isPreppingJump = false;
-            Debug.Log("Jump executed with force: " + (jumpDirection * jumpForce * jumpMult));
+            Debug.Log("Jump executed with force: " + (jumpDirection * finalJumpForce));
         }
     }
 
@@ -150,8 +175,17 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-   private void HorAbility()
+    private void HorAbility()
     {
-
+        if (Input.GetKeyDown(KeyCode.H)) 
+        {
+            isHorAbilityActive = true;
+            Debug.Log("Horizontal Ability Activated");
+        }
+        else if (Input.GetKeyDown(KeyCode.J)) 
+        {
+            isHorAbilityActive = false;
+            Debug.Log("Horizontal Ability Deactivated");
+        }
     }
 }
