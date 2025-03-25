@@ -46,23 +46,23 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Don't allow movement while charging jump in normal state
-        if (!isHorAbilityActive && isPreppingJump) return;
+        // Only allow movement when grounded (completely disable all air movement)
+        if (!isGrounded) return;
 
         float moveInput = Input.GetAxis("Horizontal");
 
-        // Adjust jump direction
+        // Adjust jump direction (only affects next jump)
         if (moveInput < 0) jumpDirection = new Vector2(-0.25f, 1f).normalized;
         else if (moveInput > 0) jumpDirection = new Vector2(0.25f, 1f).normalized;
 
-        // Movement logic
+        // Only allow movement when grounded or when ability is active
         if (isGrounded)
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
         else if (isHorAbilityActive)
         {
-            rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
+           rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
         }
     }
 
@@ -72,15 +72,17 @@ public class CharacterController : MonoBehaviour
         {
             if (isHorAbilityActive)
             {
+
                 rb.linearVelocity = new Vector2(
-                    Input.GetAxis("Horizontal") * airMoveSpeed * 0.5f, // Reduced initial push
+                    Input.GetAxis("Horizontal") * airMoveSpeed * 0.5f,
                     shortHopForce
                 );
             }
             else
             {
+                // Normal charged jump
                 isPreppingJump = true;
-                rb.linearVelocity = Vector2.zero; // Stop movement when starting charge
+                rb.linearVelocity = Vector2.zero; 
             }
         }
 
@@ -89,7 +91,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetButton("Jump") && isPreppingJump)
             {
                 ChargeJump();
-                rb.linearVelocity = Vector2.zero; // Freeze during charge
+                rb.linearVelocity = Vector2.zero; 
             }
             else if (isPreppingJump)
             {
