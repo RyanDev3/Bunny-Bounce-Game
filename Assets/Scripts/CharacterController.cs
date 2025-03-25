@@ -46,21 +46,22 @@ public class CharacterController : MonoBehaviour
 
     private void HandleMovement()
     {
+        // Don't allow movement while charging jump in normal state
+        if (!isHorAbilityActive && isPreppingJump) return;
+
         float moveInput = Input.GetAxis("Horizontal");
 
-        // Adjustable jump direction (unchanged)
+        // Adjust jump direction
         if (moveInput < 0) jumpDirection = new Vector2(-0.25f, 1f).normalized;
         else if (moveInput > 0) jumpDirection = new Vector2(0.25f, 1f).normalized;
 
         // Movement logic
         if (isGrounded)
         {
-            // Normal ground movement
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
         else if (isHorAbilityActive)
         {
-            // Precise air control when ability is active
             rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
         }
     }
@@ -71,28 +72,32 @@ public class CharacterController : MonoBehaviour
         {
             if (isHorAbilityActive)
             {
-                // Short hop with minimal vertical force
-                rb.AddForce(Vector2.up * shortHopForce, ForceMode2D.Impulse);
-                // Give immediate horizontal control
-                float moveInput = Input.GetAxis("Horizontal");
-                rb.linearVelocity = new Vector2(moveInput * airMoveSpeed, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(
+                    Input.GetAxis("Horizontal") * airMoveSpeed * 0.5f, // Reduced initial push
+                    shortHopForce
+                );
             }
             else
             {
-                // Normal charged jump
                 isPreppingJump = true;
+                rb.linearVelocity = Vector2.zero; // Stop movement when starting charge
             }
         }
 
-        // Normal charge (only when ability is OFF)
         if (!isHorAbilityActive)
         {
-            if (Input.GetButton("Jump") && isPreppingJump) ChargeJump();
-            else if (isPreppingJump) ExecuteJump();
+            if (Input.GetButton("Jump") && isPreppingJump)
+            {
+                ChargeJump();
+                rb.linearVelocity = Vector2.zero; // Freeze during charge
+            }
+            else if (isPreppingJump)
+            {
+                ExecuteJump();
+            }
             DecayJumpMultiplier();
         }
     }
-
     private void ChargeJump()
     {
         // Increase the jump multiplier up to the maximum value
