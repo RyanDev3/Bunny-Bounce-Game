@@ -7,7 +7,7 @@ public class CharacterController : MonoBehaviour
 
     [Header("HorAbility Settings")]
     [SerializeField] private float shortHopForce = 6f; // Fixed low jump force
-    [SerializeField] private float airMoveSpeed = 8f; // Faster horizontal control in air
+    [SerializeField] private float airMoveSpeed = 8f; // Faster horizontal control in air      //JACK DONT TOUCH THESE THEY ARE SO USELESS
 
 
     [Header("Movement")]
@@ -19,12 +19,12 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpReductionFactor = 5f; // Jump Decay For The Horizontal Ability
 
     [Header("State Settings")]
-    private bool isGrounded; // Whether the character is on the ground
-    private Rigidbody2D rb; // Reference to the Rigidbody2D component
-    private float jumpMult = 2f; // Current jump multiplier
-    private bool isPreppingJump; // Whether the character is charging a jump
-    private Vector2 jumpDirection = Vector2.up; // Direction of the jump, default is upwards
-    private bool isHorAbilityActive = false; // Whether the horizontal ability is active
+    [SerializeField] private bool isGrounded; // Whether the character is on the ground
+    [SerializeField] private Rigidbody2D rb; // Reference to the Rigidbody2D component
+    [SerializeField] private float jumpMult = 2f; // Current jump multiplier
+    [SerializeField] private bool isPreppingJump; // Whether the character is charging a jump
+    [SerializeField] private Vector2 jumpDirection = Vector2.up; // Direction of the jump, default is upwards
+    [SerializeField] private bool isHorAbilityActive; // Whether the horizontal ability is active
 
     void Start()
     {
@@ -182,10 +182,10 @@ public class CharacterController : MonoBehaviour
             isHorAbilityActive = true;
             Debug.Log("Horizontal Ability Activated");
         }
-        else if (Input.GetKeyDown(KeyCode.J)) 
+        else if (Input.GetKeyDown(KeyCode.J))   //PURELY KEYBINDS AND DEBUG DONT CHANGE
         {
             isHorAbilityActive = false;
             Debug.Log("Horizontal Ability Deactivated");
-        }
+        } 
     }
 }
