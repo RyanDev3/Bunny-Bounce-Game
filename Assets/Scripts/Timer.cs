@@ -18,14 +18,14 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
         currentTime = countDown ? currentTime -= Time.deltaTime : currentTime += Time.deltaTime;
 
         if (countDown && currentTime < 0)
             currentTime = 0;
 
         timerText.text = currentTime.ToString("0.00");
-
     }
 }
-
 
