@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    private enum AbilityState { Normal, LowGravity, HorizontalAirControl }
+    private enum AbilityState { Normal, HorizontalAirControl, LowGravity }
     private AbilityState currentAbility = AbilityState.Normal;
 
 
@@ -202,20 +202,20 @@ public class CharacterController : MonoBehaviour
                 Debug.Log("Normal");
                 break;
 
-            case AbilityState.LowGravity:
-                jumpAngleX = 0.35f;
-                jumpAngleY = 0.75f;
-                colourMult = 0.7f;
-                Physics2D.gravity = new Vector2(0, -5f);
-                Debug.Log("Low Gravity");
-                break;
-
             case AbilityState.HorizontalAirControl:
                 jumpAngleX = 0.75f;
                 jumpAngleY = 0.5f;
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
                 Debug.Log("Horizontal Air Control");
+                break;
+
+            case AbilityState.LowGravity:
+                jumpAngleX = 0.35f;
+                jumpAngleY = 0.75f;
+                colourMult = 0.7f;
+                Physics2D.gravity = new Vector2(0, -5f);
+                Debug.Log("Low Gravity");
                 break;
         }
     }
