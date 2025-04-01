@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
         if (countDown && currentTime < 0)
             currentTime = 0;
 
-        timerText.text = currentTime.ToString("0.00");
+        timerText.text = currentTime.ToString("00.00");
     }
 }
 
