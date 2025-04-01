@@ -10,12 +10,6 @@ public class Timer : MonoBehaviour
     public float currentTime;
     public bool countDown;
 
-
-
-    void Start()
-    {
-        
-    }
     void Update()
     {
         if (Time.timeScale == 0f) return;
@@ -25,7 +19,13 @@ public class Timer : MonoBehaviour
         if (countDown && currentTime < 0)
             currentTime = 0;
 
-        timerText.text = currentTime.ToString("00.00");
+        UpdateTimerDisplay();
+    }
+
+    private void UpdateTimerDisplay()
+    {
+        int minutes = Mathf.FloorToInt(currentTime / 60f);
+        int seconds = Mathf.FloorToInt(currentTime % 60f);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
-
