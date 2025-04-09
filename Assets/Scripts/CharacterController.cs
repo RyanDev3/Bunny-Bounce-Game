@@ -21,9 +21,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpChargeSpeed = 5f; // Speed at which the jump charge increases
     [SerializeField] private float jumpDecaySpeed = 8f; // Speed at which the jump multiplier decays after release
     [SerializeField] private float jumpReductionFactor = 5f; // Jump Decay For The Horizontal Ability
-    [SerializeField] public PhysicsMaterial2D bounceMat, normalMat;
-    [SerializeField] private bool canBounce = true;
-    [SerializeField] private float bounceSpeed = 100;
 
     [Header("State Settings")]
     [SerializeField] private bool isGrounded; // Whether the character is on the ground
@@ -36,8 +33,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpAngleY = 1f;
     [SerializeField] private float colourMult = 1f;
 
-    [SerializeField] public LayerMask groundMask;
-    
+
 
     void Start()
     {
@@ -154,16 +150,6 @@ public class CharacterController : MonoBehaviour
                 isGrounded = true;
                 Debug.Log("Grounded");
                 break;
-            }
-            else
-            {
-                if(canBounce)
-                {
-                    Vector2 bounceDirection = cp.normal;
-
-                    rb.AddForce(bounceDirection * bounceSpeed);
-                }
-                
             }
 
             // Handle collision with walls
