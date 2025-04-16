@@ -33,6 +33,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpAngleY = 1f;
     [SerializeField] private float colourMult = 1f;
 
+    [SerializeField] private bool canBounce = true;
+    [SerializeField] private float bounceSpeed = 100;
 
 
     void Start()
@@ -61,6 +63,7 @@ public class CharacterController : MonoBehaviour
         // Only allow movement when grounded or when ability is active
         if (isGrounded)
         {
+
             //rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
         else if (isHorAbilityActive)
@@ -151,17 +154,16 @@ public class CharacterController : MonoBehaviour
                 Debug.Log("Grounded");
                 break;
             }
-
-            // Handle collision with walls
-            if (collision.gameObject.CompareTag("Wall"))
+            else
             {
-                Debug.Log("Wall Hit");
-                Rigidbody rb = GetComponent<Rigidbody>();
-                if (rb != null)
+                if(canBounce)
                 {
-                    rb.linearVelocity = new Vector3(-rb.linearVelocity.x, rb.linearVelocity.y, -rb.linearVelocity.z);
+                    Vector2 bounceDirection = cp.normal;
+
+                    rb.AddForce(bounceDirection * bounceSpeed);
                 }
             }
+
         }
     }
 
