@@ -36,10 +36,13 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private bool canBounce = true;
     [SerializeField] private float bounceSpeed = 100;
 
+    Animator animator;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -48,6 +51,10 @@ public class CharacterController : MonoBehaviour
         HandleJump();
         HandleAbilities();
         ApplyCurrentAbility();
+        animator.SetBool("isJumping", !isGrounded);
+
+        animator.SetFloat("Xvelo", Mathf.Abs(rb.linearVelocity.x));
+        animator.SetFloat("Yvelo", rb.linearVelocity.y);
     }
 
 
@@ -151,17 +158,17 @@ public class CharacterController : MonoBehaviour
             if (cp.normal.y > 0.9f) // If the contact normal is mostly upwards, the character is grounded
             {
                 isGrounded = true;
+                animator.SetBool("isJumping", !isGrounded);
                 Debug.Log("Grounded");
                 break;
             }
             else
             {
-                if(canBounce)
-                {
-                    Vector2 bounceDirection = cp.normal;
 
-                    rb.AddForce(bounceDirection * bounceSpeed);
-                }
+                Vector2 bounceDirection = cp.normal;
+
+                rb.AddForce(bounceDirection, (ForceMode2D)bounceSpeed);
+                
             }
 
         }
