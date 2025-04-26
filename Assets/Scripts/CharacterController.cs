@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CharacterController : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpAngleX = 0.25f;
     [SerializeField] private float jumpAngleY = 1f;
     [SerializeField] private float colourMult = 1f;
+    [SerializeField] private Text abilityText;
 
     [SerializeField] private bool canBounce = true;
     [SerializeField] private float bounceSpeed = 100;
@@ -201,6 +204,8 @@ public class CharacterController : MonoBehaviour
 
     private void ApplyCurrentAbility()
     {
+        string abilityName = "";
+
         switch (currentAbility)
         {
             case AbilityState.Normal:
@@ -208,7 +213,7 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 1f;
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
-                Debug.Log("Normal");
+                abilityName = "NORMAL";
                 break;
 
             case AbilityState.HorizontalAirControl:
@@ -216,7 +221,7 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 0.5f;
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
-                Debug.Log("Horizontal Air Control");
+                abilityName = "AIRCONTROL";
                 break;
 
             case AbilityState.LowGravity:
@@ -224,8 +229,25 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 0.75f;
                 colourMult = 0.7f;
                 Physics2D.gravity = new Vector2(0, -5f);
-                Debug.Log("Low Gravity");
+                abilityName = "LOW GRAVITY";
                 break;
         }
+
+        // Update the text if the reference exists
+        if (abilityText != null)
+        {
+            abilityText.text = abilityName;
+        }
+        else
+        {
+            // Try to find the text component if not assigned
+            abilityText = GetComponentInChildren<Text>();
+            if (abilityText != null)
+            {
+                abilityText.text = abilityName;
+            }
+        }
+
+        Debug.Log(abilityName);
     }
 }
