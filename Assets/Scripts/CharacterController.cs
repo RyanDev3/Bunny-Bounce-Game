@@ -170,7 +170,7 @@ public class CharacterController : MonoBehaviour
 
                 Vector2 bounceDirection = cp.normal;
 
-                rb.AddForce(bounceDirection, (ForceMode2D)bounceSpeed);
+                rb.AddForce(bounceDirection * bounceSpeed);
                 
             }
 
