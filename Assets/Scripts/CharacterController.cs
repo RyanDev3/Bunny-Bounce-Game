@@ -213,7 +213,7 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 1f;
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
-                abilityName = "NORMAL";
+                abilityName = "Vertical Jump";
                 break;
 
             case AbilityState.HorizontalAirControl:
@@ -221,7 +221,7 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 0.5f;
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
-                abilityName = "AIRCONTROL";
+                abilityName = "Horizontal Jump";
                 break;
 
             case AbilityState.LowGravity:
@@ -229,7 +229,7 @@ public class CharacterController : MonoBehaviour
                 jumpAngleY = 0.75f;
                 colourMult = 0.7f;
                 Physics2D.gravity = new Vector2(0, -5f);
-                abilityName = "LOW GRAVITY";
+                abilityName = "Low Gravity Jump";
                 break;
         }
 

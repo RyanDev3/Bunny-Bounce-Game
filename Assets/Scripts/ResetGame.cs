@@ -8,7 +8,7 @@ public class SimpleReset : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("Level1");
+            SceneManager.LoadScene("Tutorial");
         }
     }
 }
