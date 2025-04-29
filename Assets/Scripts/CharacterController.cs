@@ -38,6 +38,9 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private float bounceSpeed = 100;
 
+    [SerializeField] private bool Test = true;
+
+
     Animator animator;
 
 
