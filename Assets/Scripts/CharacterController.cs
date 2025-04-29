@@ -35,6 +35,8 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float jumpAngleY = 1f;
     [SerializeField] private float colourMult = 1f;
     [SerializeField] private Text abilityText;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private bool facingRight = false;
 
     [SerializeField] private float bounceSpeed = 100;
 
@@ -63,6 +65,7 @@ public class CharacterController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
     }
 
@@ -85,9 +88,45 @@ public class CharacterController : MonoBehaviour
 
         float moveInput = Input.GetAxis("Horizontal");
 
+
+        if (moveInput > 0 && isGrounded)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else if (moveInput < 0 && isGrounded)
+        {
+            spriteRenderer.flipX = false;
+        }
+
+
         // Adjust jump direction (only affects next jump)
         if (moveInput < 0) jumpDirection = new Vector2(-jumpAngleX, jumpAngleY).normalized;
         else if (moveInput > 0) jumpDirection = new Vector2(jumpAngleX, jumpAngleY).normalized;
+
+        
+
+        /*
+        if (Input.GetKeyDown(KeyCode.A) && facingRight)
+        {
+            facingRight = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+            facingRight = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) && facingRight)
+        {
+            facingRight = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+            facingRight = true;
+        }
+
+        */
 
         // Only allow movement when grounded or when ability is active
         if (isGrounded)
