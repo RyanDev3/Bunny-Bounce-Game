@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AbilityPickupManager : MonoBehaviour
 {
@@ -17,5 +18,9 @@ public class AbilityPickupManager : MonoBehaviour
     {
         CurrentAbilityLevel += v;
         OnAbilityLevelIncrease?.Invoke(CurrentAbilityLevel);
+    }
+    public void GameEnd()
+    {
+        SceneManager.LoadScene("EndScreen");
     }
 }
