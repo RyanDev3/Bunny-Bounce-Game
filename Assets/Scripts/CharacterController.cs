@@ -212,7 +212,7 @@ public class CharacterController : MonoBehaviour
     // Abilities
     void SwitchAbility()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && isGrounded)
         {
             IncrementAbility();
         }
@@ -262,6 +262,9 @@ public class CharacterController : MonoBehaviour
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
                 abilityName = "Vertical Jump";
+                animator.SetBool("IsBlue", true);
+                animator.SetBool("IsYellow", false);
+                animator.SetBool("IsPink", false);
                 break;
 
             case 1:
@@ -270,6 +273,9 @@ public class CharacterController : MonoBehaviour
                 colourMult = 1f;
                 Physics2D.gravity = new Vector2(0, -9.8f);
                 abilityName = "Horizontal Jump";
+                animator.SetBool("IsBlue", false);
+                animator.SetBool("IsYellow", true);
+                animator.SetBool("IsPink", false);
                 break;
 
             case 2:
@@ -278,6 +284,9 @@ public class CharacterController : MonoBehaviour
                 colourMult = 0.7f;
                 Physics2D.gravity = new Vector2(0, -5f);
                 abilityName = "Low Gravity Jump";
+                animator.SetBool("IsBlue", false);
+                animator.SetBool("IsYellow", false);
+                animator.SetBool("IsPink", true);
                 break;
         }
 
