@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Egg_pink_0: -7758715910037683867
+      Egg_pink_1: -4252388002098661092
+      Egg_pink_10: 126006848247726593
+      Egg_pink_11: -4490632989560460978
+      Egg_pink_2: 1434841459073466782
+      Egg_pink_3: -5035426944896882222
+      Egg_pink_4: -4129718683352040812
+      Egg_pink_5: -9028104524343329513
+      Egg_pink_6: 2359710096186881462
+      Egg_pink_7: 6312669656991806156
+      Egg_pink_8: -4300071396476566421
+      Egg_pink_9: -812466219481181883
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

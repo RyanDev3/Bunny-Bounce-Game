@@ -8,8 +8,8 @@ public class AbilityPickup : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
             AbilityPickupManager.Instance.IncreaseAbilityLevel(AbilityAmount);
+            Destroy(gameObject);            
         }
     }
 }

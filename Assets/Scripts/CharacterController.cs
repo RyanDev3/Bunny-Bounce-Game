@@ -7,8 +7,8 @@ using TMPro;
 public class CharacterController : MonoBehaviour
 {
 
-    private enum AbilityState { Normal, HorizontalAirControl, LowGravity }
-    private AbilityState currentAbility = AbilityState.Normal;
+    //private enum AbilityState { Normal, HorizontalAirControl, LowGravity }
+    //private AbilityState currentAbility = AbilityState.Normal;
 
 
     [Header("HorAbility Settings")]
@@ -41,8 +41,24 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private bool Test = true;
 
 
-    Animator animator;
+    Animator animator; 
+    Dictionary<int, bool> abilities = new Dictionary<int, bool>()
+    {
+        {0, true }, // Normal
+        {1, false }, // HorizontalAirControl
+        {2, false } // LowGravity
+    };
+    int currentAbility = 0;
 
+    private void OnEnable()
+    {
+        AbilityPickupManager.OnAbilityLevelIncrease += UnlockAbility;
+    }
+
+    private void OnDisable()
+    {
+        AbilityPickupManager.OnAbilityLevelIncrease -= UnlockAbility;
+    }
 
     void Start()
     {
@@ -54,7 +70,8 @@ public class CharacterController : MonoBehaviour
     {
         HandleMovement();
         HandleJump();
-        HandleAbilities();
+        //HandleAbilities();
+        SwitchAbility();
         ApplyCurrentAbility();
         animator.SetBool("isJumping", !isGrounded);
 
@@ -190,6 +207,97 @@ public class CharacterController : MonoBehaviour
     }
 
     // Abilities
+    void SwitchAbility()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            IncrementAbility();
+        }
+    }
+
+    void IncrementAbility()
+    {
+        if (currentAbility + 1 == abilities.Count)
+        {
+            currentAbility = 0;
+        }
+        else
+        {
+            currentAbility++;
+        }
+
+        if (!CheckAbility())
+        {
+            //print("Ability at " + currentAbility + " is locked. Moving to next ability");
+            IncrementAbility();
+        }
+        else
+        {
+            //print("Current ability: " + currentAbility);
+        }
+    }
+
+    bool CheckAbility()
+    {
+        return abilities[currentAbility];
+    }
+
+    void UnlockAbility(int index)
+    {
+        abilities[index] = true;
+    }
+
+    public void ApplyCurrentAbility()
+    {
+        string abilityName = "";
+
+        switch (currentAbility)
+        {
+            case 0:
+                jumpAngleX = 0.25f;
+                jumpAngleY = 1f;
+                colourMult = 1f;
+                Physics2D.gravity = new Vector2(0, -9.8f);
+                abilityName = "Vertical Jump";
+                break;
+
+            case 1:
+                jumpAngleX = 0.75f;
+                jumpAngleY = 0.5f;
+                colourMult = 1f;
+                Physics2D.gravity = new Vector2(0, -9.8f);
+                abilityName = "Horizontal Jump";
+                break;
+
+            case 2:
+                jumpAngleX = 0.35f;
+                jumpAngleY = 0.75f;
+                colourMult = 0.7f;
+                Physics2D.gravity = new Vector2(0, -5f);
+                abilityName = "Low Gravity Jump";
+                break;
+        }
+
+        // Update the text if the reference exists
+        if (abilityText != null)
+        {
+            abilityText.text = abilityName;
+        }
+        else
+        {
+            // Try to find the text component if not assigned
+            abilityText = GetComponentInChildren<Text>();
+            if (abilityText != null)
+            {
+                abilityText.text = abilityName;
+            }
+        }
+
+        Debug.Log(abilityName);
+    }
+
+    //Old ability code
+    /*
     private void HandleAbilities()
     {
         if (Input.GetKeyDown(KeyCode.Q)) // Cycle forward through abilities
@@ -252,4 +360,5 @@ public class CharacterController : MonoBehaviour
 
         Debug.Log(abilityName);
     }
+    */
 }

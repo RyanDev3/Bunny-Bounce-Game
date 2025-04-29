@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      egg_blue_0: 4546143573405868424
+      egg_blue_1: -2398190313590420388
+      egg_blue_10: 6946545158899644117
+      egg_blue_11: -8445556040014461461
+      egg_blue_2: -4359417538599254254
+      egg_blue_3: -2889414091883356997
+      egg_blue_4: 7484496159349552922
+      egg_blue_5: -8495097606239995608
+      egg_blue_6: -7479565796237599245
+      egg_blue_7: 5900638242612815123
+      egg_blue_8: 4557809014671864872
+      egg_blue_9: -3198402745874681650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

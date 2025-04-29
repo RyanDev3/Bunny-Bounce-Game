@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Collect_Flagpole_0: 6745113578447002666
+      Collect_Flagpole_1: 7780011260036427329
+      Collect_Flagpole_2: 6354100653306845984
+      Collect_Flagpole_3: 6738695539544837931
+      Collect_Flagpole_4: 5932861703334996064
+      Collect_Flagpole_5: 6302946303536540357
+      Collect_Flagpole_6: -6827311062992493808
+      Collect_Flagpole_7: -1245283089197968445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

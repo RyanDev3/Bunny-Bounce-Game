@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      egg_yellow_0: -29430164549601031
+      egg_yellow_1: 3988437609298070107
+      egg_yellow_10: 8834101154292269975
+      egg_yellow_11: 6618355546036861117
+      egg_yellow_2: -3414104400746854491
+      egg_yellow_3: 5015102949417518335
+      egg_yellow_4: -2817829666432176400
+      egg_yellow_5: -1147008516948396339
+      egg_yellow_6: 574334943376090716
+      egg_yellow_7: -4865824141733169499
+      egg_yellow_8: 2350057642198939570
+      egg_yellow_9: -1020986448723296156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
