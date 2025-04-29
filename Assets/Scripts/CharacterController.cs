@@ -140,6 +140,7 @@ public class CharacterController : MonoBehaviour
         // Increase the jump multiplier up to the maximum value
         if (jumpMult < maxJumpMultiplier)
         {
+            animator.SetBool("Charging Jump", true);
             jumpMult += jumpChargeSpeed * Time.deltaTime;
         }
     }
@@ -149,6 +150,8 @@ public class CharacterController : MonoBehaviour
         if (isGrounded)
         {
             float finalJumpForce = jumpForce;
+
+            animator.SetBool("Charging Jump", false);
 
             if (isHorAbilityActive)
             {

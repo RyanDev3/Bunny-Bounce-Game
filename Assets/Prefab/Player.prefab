@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 6547643220594911735}
   - component: {fileID: 1751228684083866138}
   - component: {fileID: 474489624237914808}
-  - component: {fileID: 7647033489932309714}
-  - component: {fileID: 3143168230846346219}
   - component: {fileID: 6604623644156150101}
   - component: {fileID: 8423836572231328551}
   m_Layer: 0
@@ -151,8 +149,8 @@ MonoBehaviour:
   jumpAngleY: 1
   colourMult: 1
   abilityText: {fileID: 0}
-  canBounce: 1
   bounceSpeed: 200
+  Test: 1
 --- !u!61 &474489624237914808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,30 +197,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.85245484, y: 0.7508575}
   m_EdgeRadius: 0
---- !u!114 &7647033489932309714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319164528699427200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734eb9902e738014b88600926280c992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3143168230846346219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 319164528699427200}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 734eb9902e738014b88600926280c992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6604623644156150101
 Animator:
   serializedVersion: 7

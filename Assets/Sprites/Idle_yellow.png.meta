@@ -1,43 +1,64 @@
 fileFormatVersion: 2
-guid: 11ee2807cc410124fa5d16de210ea0a2
+guid: ed10f3617a605664fb1cc7efb79f4e22
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4546143573405868424
-    second: egg_blue_0
+      213: -1423116780401871535
+    second: Idle_yellow_0
   - first:
-      213: -2398190313590420388
-    second: egg_blue_1
+      213: -4362682423222073125
+    second: Idle_yellow_1
   - first:
-      213: -4359417538599254254
-    second: egg_blue_2
+      213: -1115535675571405859
+    second: Idle_yellow_2
   - first:
-      213: -2889414091883356997
-    second: egg_blue_3
+      213: -3952400149626237555
+    second: Idle_yellow_3
   - first:
-      213: 7484496159349552922
-    second: egg_blue_4
+      213: -7934671789847609895
+    second: Idle_yellow_4
   - first:
-      213: -8495097606239995608
-    second: egg_blue_5
+      213: 4227585092355697162
+    second: Idle_yellow_5
   - first:
-      213: -7479565796237599245
-    second: egg_blue_6
+      213: -7091243290616233159
+    second: Idle_yellow_6
   - first:
-      213: 5900638242612815123
-    second: egg_blue_7
+      213: 3250191031973609412
+    second: Idle_yellow_7
   - first:
-      213: 4557809014671864872
-    second: egg_blue_8
+      213: -4794230114735286597
+    second: Idle_yellow_8
   - first:
-      213: -3198402745874681650
-    second: egg_blue_9
+      213: -5406871468104699453
+    second: Idle_yellow_9
   - first:
-      213: 6946545158899644117
-    second: egg_blue_10
+      213: 8257547774266808322
+    second: Idle_yellow_10
   - first:
-      213: -8445556040014461461
-    second: egg_blue_11
+      213: 4158500670120925385
+    second: Idle_yellow_11
+  - first:
+      213: 164208816130845078
+    second: Idle_yellow_12
+  - first:
+      213: 7055237873127440284
+    second: Idle_yellow_13
+  - first:
+      213: -3454748984017360408
+    second: Idle_yellow_14
+  - first:
+      213: 5072296571547810820
+    second: Idle_yellow_15
+  - first:
+      213: 6989850411526362306
+    second: Idle_yellow_16
+  - first:
+      213: 2387921462743807465
+    second: Idle_yellow_17
+  - first:
+      213: 8518844461223138610
+    second: Idle_yellow_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,24 +150,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: egg_blue_0
+      name: Idle_yellow_0
       rect:
         serializedVersion: 2
         x: 0
@@ -161,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88128c65e75271f30800000000000000
-      internalID: 4546143573405868424
+      spriteID: 155bf3604d2104ce0800000000000000
+      internalID: -1423116780401871535
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_1
+      name: Idle_yellow_1
       rect:
         serializedVersion: 2
         x: 64
@@ -183,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5c09aead9ae7bed0800000000000000
-      internalID: -2398190313590420388
+      spriteID: bd802085373a473c0800000000000000
+      internalID: -4362682423222073125
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_2
+      name: Idle_yellow_2
       rect:
         serializedVersion: 2
         x: 128
@@ -205,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2170f2888dc3083c0800000000000000
-      internalID: -4359417538599254254
+      spriteID: ddb7a43a632d480f0800000000000000
+      internalID: -1115535675571405859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_3
+      name: Idle_yellow_3
       rect:
         serializedVersion: 2
         x: 192
@@ -227,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbcd844313db6e7d0800000000000000
-      internalID: -2889414091883356997
+      spriteID: d8dc35f21014629c0800000000000000
+      internalID: -3952400149626237555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_4
+      name: Idle_yellow_4
       rect:
         serializedVersion: 2
         x: 256
@@ -249,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a173ec43a954ed760800000000000000
-      internalID: 7484496159349552922
+      spriteID: 9ddf1dcfb0262e190800000000000000
+      internalID: -7934671789847609895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_5
+      name: Idle_yellow_5
       rect:
         serializedVersion: 2
         x: 320
@@ -271,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8293bcf6cb95b1a80800000000000000
-      internalID: -8495097606239995608
+      spriteID: a0a29972e366baa30800000000000000
+      internalID: 4227585092355697162
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_6
+      name: Idle_yellow_6
       rect:
         serializedVersion: 2
         x: 384
@@ -293,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fd9819698e333890800000000000000
-      internalID: -7479565796237599245
+      spriteID: 93382f65cc7d69d90800000000000000
+      internalID: -7091243290616233159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_7
+      name: Idle_yellow_7
       rect:
         serializedVersion: 2
         x: 448
@@ -315,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 315a50ff73743e150800000000000000
-      internalID: 5900638242612815123
+      spriteID: 4cf72f8f58ffa1d20800000000000000
+      internalID: 3250191031973609412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_8
+      name: Idle_yellow_8
       rect:
         serializedVersion: 2
         x: 512
@@ -337,14 +345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 824f6998627904f30800000000000000
-      internalID: 4557809014671864872
+      spriteID: bb619bf8c19777db0800000000000000
+      internalID: -4794230114735286597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_9
+      name: Idle_yellow_9
       rect:
         serializedVersion: 2
         x: 576
@@ -359,14 +367,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec0718306adfc93d0800000000000000
-      internalID: -3198402745874681650
+      spriteID: 3c1bc6deb0fe6f4b0800000000000000
+      internalID: -5406871468104699453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_10
+      name: Idle_yellow_10
       rect:
         serializedVersion: 2
         x: 640
@@ -381,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d63c648406176060800000000000000
-      internalID: 6946545158899644117
+      spriteID: 2089df843f3b89270800000000000000
+      internalID: 8257547774266808322
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_11
+      name: Idle_yellow_11
       rect:
         serializedVersion: 2
         x: 704
@@ -403,8 +411,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be58840378b5bca80800000000000000
-      internalID: -8445556040014461461
+      spriteID: 9c818c8a356f5b930800000000000000
+      internalID: 4158500670120925385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699677a5c03674200800000000000000
+      internalID: 164208816130845078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9fb4a1277d39e160800000000000000
+      internalID: 7055237873127440284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9e0836a144e00d0800000000000000
+      internalID: -3454748984017360408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40cf98e8bda646640800000000000000
+      internalID: 5072296571547810820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4952c5aefe00160800000000000000
+      internalID: 6989850411526362306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5306a2be9932120800000000000000
+      internalID: 2387921462743807465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_yellow_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235520817e3093670800000000000000
+      internalID: 8518844461223138610
       vertices: []
       indices: 
       edges: []
@@ -413,7 +575,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a14b2a2bc1684974f8215c029f73d6dc
+    spriteID: 60177eac7b3ea2a448710f5f056d2a25
     internalID: 0
     vertices: []
     indices: 
@@ -423,18 +585,25 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      egg_blue_0: 4546143573405868424
-      egg_blue_1: -2398190313590420388
-      egg_blue_10: 6946545158899644117
-      egg_blue_11: -8445556040014461461
-      egg_blue_2: -4359417538599254254
-      egg_blue_3: -2889414091883356997
-      egg_blue_4: 7484496159349552922
-      egg_blue_5: -8495097606239995608
-      egg_blue_6: -7479565796237599245
-      egg_blue_7: 5900638242612815123
-      egg_blue_8: 4557809014671864872
-      egg_blue_9: -3198402745874681650
+      Idle_yellow_0: -1423116780401871535
+      Idle_yellow_1: -4362682423222073125
+      Idle_yellow_10: 8257547774266808322
+      Idle_yellow_11: 4158500670120925385
+      Idle_yellow_12: 164208816130845078
+      Idle_yellow_13: 7055237873127440284
+      Idle_yellow_14: -3454748984017360408
+      Idle_yellow_15: 5072296571547810820
+      Idle_yellow_16: 6989850411526362306
+      Idle_yellow_17: 2387921462743807465
+      Idle_yellow_18: 8518844461223138610
+      Idle_yellow_2: -1115535675571405859
+      Idle_yellow_3: -3952400149626237555
+      Idle_yellow_4: -7934671789847609895
+      Idle_yellow_5: 4227585092355697162
+      Idle_yellow_6: -7091243290616233159
+      Idle_yellow_7: 3250191031973609412
+      Idle_yellow_8: -4794230114735286597
+      Idle_yellow_9: -5406871468104699453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

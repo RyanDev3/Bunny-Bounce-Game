@@ -1,43 +1,64 @@
 fileFormatVersion: 2
-guid: 11ee2807cc410124fa5d16de210ea0a2
+guid: c89265f8845cd414eb4d25f5004d21f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4546143573405868424
-    second: egg_blue_0
+      213: -296199455847101231
+    second: Idle_pink_0
   - first:
-      213: -2398190313590420388
-    second: egg_blue_1
+      213: 6671553002191350610
+    second: Idle_pink_1
   - first:
-      213: -4359417538599254254
-    second: egg_blue_2
+      213: -641988991811057261
+    second: Idle_pink_2
   - first:
-      213: -2889414091883356997
-    second: egg_blue_3
+      213: 3436162169670744829
+    second: Idle_pink_3
   - first:
-      213: 7484496159349552922
-    second: egg_blue_4
+      213: -5678160508970970713
+    second: Idle_pink_4
   - first:
-      213: -8495097606239995608
-    second: egg_blue_5
+      213: 7385695922475042253
+    second: Idle_pink_5
   - first:
-      213: -7479565796237599245
-    second: egg_blue_6
+      213: 9079547098986797038
+    second: Idle_pink_6
   - first:
-      213: 5900638242612815123
-    second: egg_blue_7
+      213: -3457868634237454048
+    second: Idle_pink_7
   - first:
-      213: 4557809014671864872
-    second: egg_blue_8
+      213: -3280658187629817042
+    second: Idle_pink_8
   - first:
-      213: -3198402745874681650
-    second: egg_blue_9
+      213: 7075725023524452396
+    second: Idle_pink_9
   - first:
-      213: 6946545158899644117
-    second: egg_blue_10
+      213: -6008910735166309633
+    second: Idle_pink_10
   - first:
-      213: -8445556040014461461
-    second: egg_blue_11
+      213: -7530677711830987060
+    second: Idle_pink_11
+  - first:
+      213: 3561382099065003840
+    second: Idle_pink_12
+  - first:
+      213: -1730979374523791964
+    second: Idle_pink_13
+  - first:
+      213: 735975862123810691
+    second: Idle_pink_14
+  - first:
+      213: 8393481608884631472
+    second: Idle_pink_15
+  - first:
+      213: 7051083453866978650
+    second: Idle_pink_16
+  - first:
+      213: 4659368676641741900
+    second: Idle_pink_17
+  - first:
+      213: -289545191780896264
+    second: Idle_pink_18
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,24 +150,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: egg_blue_0
+      name: Idle_pink_0
       rect:
         serializedVersion: 2
         x: 0
@@ -161,14 +169,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88128c65e75271f30800000000000000
-      internalID: 4546143573405868424
+      spriteID: 1dcc19b0a20b3ebf0800000000000000
+      internalID: -296199455847101231
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_1
+      name: Idle_pink_1
       rect:
         serializedVersion: 2
         x: 64
@@ -183,14 +191,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5c09aead9ae7bed0800000000000000
-      internalID: -2398190313590420388
+      spriteID: 25b6ecbab1e169c50800000000000000
+      internalID: 6671553002191350610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_2
+      name: Idle_pink_2
       rect:
         serializedVersion: 2
         x: 128
@@ -205,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2170f2888dc3083c0800000000000000
-      internalID: -4359417538599254254
+      spriteID: 3990461d9623717f0800000000000000
+      internalID: -641988991811057261
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_3
+      name: Idle_pink_3
       rect:
         serializedVersion: 2
         x: 192
@@ -227,14 +235,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bbcd844313db6e7d0800000000000000
-      internalID: -2889414091883356997
+      spriteID: dfa3cd9a943bfaf20800000000000000
+      internalID: 3436162169670744829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_4
+      name: Idle_pink_4
       rect:
         serializedVersion: 2
         x: 256
@@ -249,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a173ec43a954ed760800000000000000
-      internalID: 7484496159349552922
+      spriteID: 7a1522de91f1331b0800000000000000
+      internalID: -5678160508970970713
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_5
+      name: Idle_pink_5
       rect:
         serializedVersion: 2
         x: 320
@@ -271,14 +279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8293bcf6cb95b1a80800000000000000
-      internalID: -8495097606239995608
+      spriteID: dc50d267f434f7660800000000000000
+      internalID: 7385695922475042253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_6
+      name: Idle_pink_6
       rect:
         serializedVersion: 2
         x: 384
@@ -293,14 +301,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3fd9819698e333890800000000000000
-      internalID: -7479565796237599245
+      spriteID: ee759842bf7010e70800000000000000
+      internalID: 9079547098986797038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_7
+      name: Idle_pink_7
       rect:
         serializedVersion: 2
         x: 448
@@ -315,14 +323,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 315a50ff73743e150800000000000000
-      internalID: 5900638242612815123
+      spriteID: 029bf483cce2300d0800000000000000
+      internalID: -3457868634237454048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_8
+      name: Idle_pink_8
       rect:
         serializedVersion: 2
         x: 512
@@ -337,14 +345,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 824f6998627904f30800000000000000
-      internalID: 4557809014671864872
+      spriteID: e2319d092c2c872d0800000000000000
+      internalID: -3280658187629817042
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_9
+      name: Idle_pink_9
       rect:
         serializedVersion: 2
         x: 576
@@ -359,14 +367,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec0718306adfc93d0800000000000000
-      internalID: -3198402745874681650
+      spriteID: c28748b8b66023260800000000000000
+      internalID: 7075725023524452396
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_10
+      name: Idle_pink_10
       rect:
         serializedVersion: 2
         x: 640
@@ -381,14 +389,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d63c648406176060800000000000000
-      internalID: 6946545158899644117
+      spriteID: ffa716fd58f0c9ca0800000000000000
+      internalID: -6008910735166309633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: egg_blue_11
+      name: Idle_pink_11
       rect:
         serializedVersion: 2
         x: 704
@@ -403,8 +411,162 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be58840378b5bca80800000000000000
-      internalID: -8445556040014461461
+      spriteID: ccecc543588ad7790800000000000000
+      internalID: -7530677711830987060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04f543c66229c6130800000000000000
+      internalID: 3561382099065003840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a54bf31e635af7e0800000000000000
+      internalID: -1730979374523791964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38fc621b526b63a00800000000000000
+      internalID: 735975862123810691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_15
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b7b75e7d03ab7470800000000000000
+      internalID: 8393481608884631472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_16
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d20650b0b7ad160800000000000000
+      internalID: 7051083453866978650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_17
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4c10d0002769a040800000000000000
+      internalID: 4659368676641741900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_pink_18
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f13a71ae245bfbf0800000000000000
+      internalID: -289545191780896264
       vertices: []
       indices: 
       edges: []
@@ -413,7 +575,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a14b2a2bc1684974f8215c029f73d6dc
+    spriteID: 89340bb00a8468a4c8715bca65f1cb9f
     internalID: 0
     vertices: []
     indices: 
@@ -423,18 +585,25 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      egg_blue_0: 4546143573405868424
-      egg_blue_1: -2398190313590420388
-      egg_blue_10: 6946545158899644117
-      egg_blue_11: -8445556040014461461
-      egg_blue_2: -4359417538599254254
-      egg_blue_3: -2889414091883356997
-      egg_blue_4: 7484496159349552922
-      egg_blue_5: -8495097606239995608
-      egg_blue_6: -7479565796237599245
-      egg_blue_7: 5900638242612815123
-      egg_blue_8: 4557809014671864872
-      egg_blue_9: -3198402745874681650
+      Idle_pink_0: -296199455847101231
+      Idle_pink_1: 6671553002191350610
+      Idle_pink_10: -6008910735166309633
+      Idle_pink_11: -7530677711830987060
+      Idle_pink_12: 3561382099065003840
+      Idle_pink_13: -1730979374523791964
+      Idle_pink_14: 735975862123810691
+      Idle_pink_15: 8393481608884631472
+      Idle_pink_16: 7051083453866978650
+      Idle_pink_17: 4659368676641741900
+      Idle_pink_18: -289545191780896264
+      Idle_pink_2: -641988991811057261
+      Idle_pink_3: 3436162169670744829
+      Idle_pink_4: -5678160508970970713
+      Idle_pink_5: 7385695922475042253
+      Idle_pink_6: 9079547098986797038
+      Idle_pink_7: -3457868634237454048
+      Idle_pink_8: -3280658187629817042
+      Idle_pink_9: 7075725023524452396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

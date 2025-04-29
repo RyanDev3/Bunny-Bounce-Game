@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 8bce140884e5dc646a5f2dbcd391a19c
+guid: a5f6599a35d2fd1499ce20e3e251e316
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6745113578447002666
-    second: Collect_Flagpole_0
+      213: -3253485295362245439
+    second: Jump_pink_0
   - first:
-      213: 7780011260036427329
-    second: Collect_Flagpole_1
+      213: 8512712260474267460
+    second: Jump_pink_1
   - first:
-      213: 6354100653306845984
-    second: Collect_Flagpole_2
+      213: -1251714054003975937
+    second: Jump_pink_2
   - first:
-      213: 6738695539544837931
-    second: Collect_Flagpole_3
+      213: 6364677610783002099
+    second: Jump_pink_3
   - first:
-      213: 5932861703334996064
-    second: Collect_Flagpole_4
+      213: 8268344047782763790
+    second: Jump_pink_4
   - first:
-      213: 6302946303536540357
-    second: Collect_Flagpole_5
-  - first:
-      213: -6827311062992493808
-    second: Collect_Flagpole_6
-  - first:
-      213: -1245283089197968445
-    second: Collect_Flagpole_7
+      213: -7123784633075112286
+    second: Jump_pink_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -117,24 +111,11 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Collect_Flagpole_0
+      name: Jump_pink_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a2c5ffcff057b9d50800000000000000
-      internalID: 6745113578447002666
+      spriteID: 1ccf9ff8c5c49d2d0800000000000000
+      internalID: -3253485295362245439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collect_Flagpole_1
+      name: Jump_pink_1
       rect:
         serializedVersion: 2
         x: 64
@@ -171,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 14ea20f450728fb60800000000000000
-      internalID: 7780011260036427329
+      spriteID: 4476ea8d2ba332670800000000000000
+      internalID: 8512712260474267460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collect_Flagpole_2
+      name: Jump_pink_2
       rect:
         serializedVersion: 2
         x: 128
@@ -193,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 02b9e63f0ec4e2850800000000000000
-      internalID: 6354100653306845984
+      spriteID: ff89ab223b401aee0800000000000000
+      internalID: -1251714054003975937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collect_Flagpole_3
+      name: Jump_pink_3
       rect:
         serializedVersion: 2
         x: 192
@@ -215,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2f441cd3e7a48d50800000000000000
-      internalID: 6738695539544837931
+      spriteID: 3fd4a94c090e35850800000000000000
+      internalID: 6364677610783002099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collect_Flagpole_4
+      name: Jump_pink_4
       rect:
         serializedVersion: 2
         x: 256
@@ -237,14 +218,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0682dc81942c55250800000000000000
-      internalID: 5932861703334996064
+      spriteID: e0d9ec89a1f0fb270800000000000000
+      internalID: 8268344047782763790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Collect_Flagpole_5
+      name: Jump_pink_5
       rect:
         serializedVersion: 2
         x: 320
@@ -259,52 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ca28a4c440987750800000000000000
-      internalID: 6302946303536540357
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Collect_Flagpole_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 013ec37c2c48041a0800000000000000
-      internalID: -6827311062992493808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Collect_Flagpole_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3c3dd8fc0add7bee0800000000000000
-      internalID: -1245283089197968445
+      spriteID: 2a6eb21ae9b332d90800000000000000
+      internalID: -7123784633075112286
       vertices: []
       indices: 
       edges: []
@@ -313,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: fceecb30b540b604bb0891bc384a46e7
+    spriteID: 927e5ef945cd2284f958855450abb66d
     internalID: 0
     vertices: []
     indices: 
@@ -323,14 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Collect_Flagpole_0: 6745113578447002666
-      Collect_Flagpole_1: 7780011260036427329
-      Collect_Flagpole_2: 6354100653306845984
-      Collect_Flagpole_3: 6738695539544837931
-      Collect_Flagpole_4: 5932861703334996064
-      Collect_Flagpole_5: 6302946303536540357
-      Collect_Flagpole_6: -6827311062992493808
-      Collect_Flagpole_7: -1245283089197968445
+      Jump_pink_0: -3253485295362245439
+      Jump_pink_1: 8512712260474267460
+      Jump_pink_2: -1251714054003975937
+      Jump_pink_3: 6364677610783002099
+      Jump_pink_4: 8268344047782763790
+      Jump_pink_5: -7123784633075112286
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
