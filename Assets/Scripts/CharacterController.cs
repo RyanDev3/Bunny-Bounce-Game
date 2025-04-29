@@ -36,7 +36,6 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private float colourMult = 1f;
     [SerializeField] private Text abilityText;
 
-    [SerializeField] private bool canBounce = true;
     [SerializeField] private float bounceSpeed = 100;
 
     Animator animator;
@@ -202,7 +201,7 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void ApplyCurrentAbility()
+    public void ApplyCurrentAbility()
     {
         string abilityName = "";
 
